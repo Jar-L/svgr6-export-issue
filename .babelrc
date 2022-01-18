@@ -1,0 +1,41 @@
+{
+    "presets": [
+        "@babel/preset-react"
+    ],
+    "plugins": [
+        "@babel/plugin-transform-parameters",
+        "@babel/plugin-transform-destructuring",
+        "@babel/plugin-proposal-object-rest-spread",
+        "@babel/plugin-external-helpers",
+        "@babel/plugin-proposal-export-default-from",
+        "@babel/plugin-transform-duplicate-keys",
+        ["@babel/plugin-proposal-decorators", {
+            "legacy": true
+        }],
+        "universal-import",
+        "fill-action-name",
+        [
+            "module-resolver",
+            {
+                "root": [
+                    "./"
+                ],
+                "extensions": [".js", ".jsx", ".ts"]
+            }
+        ]
+    ],
+    "env": {
+        "production": {
+            "plugins": [
+                "@babel/plugin-transform-react-constant-elements",
+                "transform-react-remove-prop-types"
+            ]
+        },
+        "development": {
+            "plugins": [
+                "@babel/plugin-transform-react-jsx-source",
+                "@babel/plugin-transform-react-jsx-self"
+            ]
+        }
+    }
+}
